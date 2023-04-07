@@ -16,6 +16,8 @@ def param_browser(request):
         browser.open('https://github.com/')
         browser.config.window_width = 412
         browser.config.window_height = 914
+    yield
+    browser.quit()
 
 
 @pytest.mark.parametrize("param_browser", ['desk'], indirect=True)

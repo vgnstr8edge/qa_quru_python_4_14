@@ -12,6 +12,8 @@ def browser_desk():
     browser.config.hold_browser_open = True
     browser.open('https://github.com/')
     browser.driver.maximize_window()
+    yield
+    browser.quit()
 
 
 @pytest.fixture
@@ -20,6 +22,8 @@ def browser_mobile():
     browser.open('https://github.com/')
     browser.config.window_width = 412
     browser.config.window_height = 914
+    yield
+    browser.quit()
 
 
 def test_github_desktop(browser_desk):
